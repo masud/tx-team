@@ -12,24 +12,26 @@ Text Domain: xt
 
 
 
-add_action('init',function(){
+add_action('init', 'metabox_menu_register');
+	function metabox_menu_register(){
 	register_post_type('products',[
 		'label'=> 'Products',
 		'show_ui' => true,
 		'has_archive' => true
 		]);
 
-});
+}
 
 
-add_action('add_meta_boxes',function(){
+add_action('add_meta_boxes', 'metabox_field_details');
+	function metabox_field_details(){
 	add_meta_box(
 		'more-details',
 		'More Details',
 		function(){},
 		'products'
 		);
-});
+}
 
 
 // function prfx_custom_meta() {
